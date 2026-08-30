@@ -28,6 +28,12 @@ consistent with each other.
 
 No difference beyond the rounding stated in each row.
 
+One row is arithmetic rather than measurement, and should be read as such. The area-weighted
+support of 95.0659% is weighted over the gross 93.6451 cm²; the deduplicated CT-supported
+figure applies it to the deduplicated 82.62 cm². That assumes deduplication removes supported
+and unsupported area in the same proportion. The pairwise overlaps were not kept, so the
+assumption cannot be tested against the archive.
+
 ## Two things the README did not explain, and now does
 
 **The set of 86 surfaces.** It is not a hand-picked subset. It is the 84 guided patches that

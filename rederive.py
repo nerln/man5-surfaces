@@ -78,7 +78,9 @@ def check_arithmetic() -> int:
             5e-5,
         ),
         (
-            "headline 2 = deduplicated x area-weighted support",
+            # Arithmetic, not an independent measurement: the support fraction is
+            # weighted over the gross area and applied to the deduplicated one.
+            "headline 2 = deduplicated x area-weighted support [by definition]",
             c["dedup_area_cm2"] * c["area_weighted_support"],
             c["dedup_ct_supported_cm2"],
             5e-3,

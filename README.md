@@ -75,7 +75,11 @@ within ±29 µm, and the sign of the mean profile.
 | C-150 | 2% | — | rejected, and the CT agrees with the gate |
 
 Over all 107 surfaces at 1296 to 1500 cells each, the deduplicated set of 86 has an
-area-weighted support of 95.07%. That is where the two headline numbers come from.
+area-weighted support of 95.07%. That is where the two headline numbers come from. One step
+in that is an assumption rather than a measurement: the 95.07% is weighted over the gross
+93.6451 cm², and applying it to the deduplicated 82.62 assumes that removing overlap removes
+supported and unsupported area in the same proportion. The overlaps were not kept, so that
+cannot be checked.
 
 The two channels rank the surfaces the same way without being told to. Void fraction against
 the gate's sheetness gives Spearman ρ = −0.463, p = 6.7 × 10⁻⁷, with accepted surfaces
