@@ -32,7 +32,7 @@ left out of the statistics rather than counted as zero: on PHerc0139 that is 34 
 38, on PHerc0814 12 of 19. `public_areas.sh` prints that listing for any of the three scrolls,
 anonymously over HTTP, and is where these figures come from.
 
-On how those surfaces were made, the public record supports less than we first wrote here.
+On how those surfaces were made, the public record supports less than I first wrote here.
 There is no `auto_grown` field in the catalogue, and no PHercMANBp segment carries that string
 in its name. What each of the ten does carry is a `seed_surface_id` beginning `auto_grown_`.
 Several of those ids end in `_inp_hr` or `-w3`, which point to processing after the seed. The
