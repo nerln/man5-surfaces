@@ -17,17 +17,27 @@ On scale, stated so it cannot be read as more than it is. The gate accepted 86 s
 totalling 93.64 cm², 84 of them tiles of roughly half a cm²; after deduplication that is
 82.62. The largest single surface here is A-150 at 36.10 cm².
 
-The comparison that anyone can check is PHercMANBp, whose ten published segments each carry
-an `area_cm2` in their `tifxyz_original` metadata on the open-data server: they run from 0.48
-to 13.13 cm², median 4.67, and total 55.44. Against that total this run is a factor of 1.49,
-not an order of magnitude. All ten of those segments are auto-grown, the same way these were,
-so it is a like-for-like comparison rather than a flattering one.
+The comparison anyone can check is PHercMANBp. Ten of its eleven published segments expose an
+`area_cm2` in `mesh/intermediate/tifxyz_original/meta.json` on the open-data bucket; the
+eleventh publishes a `meta.json` without that field. Those ten run from 0.48 to 13.13 cm²,
+median 4.67, total 55.44. Against that total this run is a factor of 1.49, not an order of
+magnitude. Two more figures from the same source, equally repeatable: the median published
+PHerc0139 segment is 38.42 cm², which A-150 sits below, and PHerc0814 carries single surfaces
+of 111.18 and 108.98 cm², each larger than this entire total.
 
-Two further comparisons come from an internal catalogue rather than from the server, and are
-marked as such because a reader cannot repeat them: the median published PHerc0139 segment
-is 38.42 cm², which A-150 sits below, and PHerc0814 carries single surfaces of 111.18 and
-108.98 cm², each larger than this entire total. Those are auto-grown too; nothing in this
-comparison is a hand-curated segment.
+Those depend on two choices, stated because a reader who makes them differently will get
+different numbers. The area is read from `tifxyz_original`, whose sibling `tifxyz_normalized`
+and `tifxyz_flattened` documents carry `area_cm2: null`. And segments publishing no area are
+left out of the statistics rather than counted as zero: on PHerc0139 that is 34 segments of
+38, on PHerc0814 12 of 19. `public_areas.sh` prints that listing for any of the three scrolls,
+anonymously over HTTP, and is where these figures come from.
+
+On how those surfaces were made, the public record supports less than we first wrote here.
+There is no `auto_grown` field in the catalogue, and no PHercMANBp segment carries that string
+in its name. What each of the ten does carry is a `seed_surface_id` beginning `auto_grown_`.
+Several of those ids end in `_inp_hr` or `-w3`, which point to processing after the seed. The
+record therefore says what a surface was grown from, not how much hand work followed, and this
+comparison should not be read as one against hand-curated segments.
 
 What is new here is that the scroll had nothing published at all, not that any one surface is
 large.
@@ -49,8 +59,7 @@ patches that appear in no table here and that nobody had a reason to drop. The t
 surfaces closest to the bar sit at 0.4528 and 0.4652, just above it.
 
 Without the gate the run would have counted about 75 cm² of degraded surface as sound,
-B-150 and C-150 together, for a total 90% larger with the added part mostly wrong. It is the
-second time a gate has refused something that looked good.
+B-150 and C-150 together, for a total 90% larger with the added part mostly wrong.
 
 What counted: `A-150` at 36.1 cm² (sheetness 0.59, 4 of 49 anomalous), `B-100` at 14.9 cm²
 (sheetness 0.62), and 84 production patches. 86 surfaces, dedup factor 0.882, with the
