@@ -10,7 +10,7 @@ passed the gate, and **78.54 cm²** of that is supported by the CT.
 The second was re-derived independently from the stored artifacts with no difference at all.
 The first is partly re-derived: the gross area it starts from, 93.6451 cm², reconciles
 exactly, but the deduplication factor applied to it does not, because the overlaps it came
-from were not kept. That is set out below and in `PROVENIENZA.md` rather than left for a
+from were not kept. That is set out below and in `PROVENANCE.md` rather than left for a
 reader to discover.
 
 On scale, stated so it cannot be read as more than it is. The gate accepted 86 surfaces
@@ -37,7 +37,7 @@ large.
 Four figures in this section cannot be recomputed from the stored artifacts: B-150's area
 and its sheetness, and the two anomalous-tile counts. B-150 was rejected and does not appear
 in the audit file at all. They come from a work log written at the time, entry `3c0e47`.
-`PROVENIENZA.md` says which figures are recomputable and which are not.
+`PROVENANCE.md` says which figures are recomputable and which are not.
 
 `B-150` came out at 36.90 cm² and looked like the best surface of the run. The gate refused
 it: sheetness 0.4251 against a counting bar of 0.45, and 21 of 49 tiles anomalous against 4
@@ -154,14 +154,16 @@ is not conclusive.
 ## Data
 
 Raw `tifxyz` surfaces, ink rasters and per-cell JSONL are on an offline archive and will be
-attached as release assets in early September. `PROVENIENZA.md` records, for every figure
-above, where it comes from and whether it was re-derived.
+attached as release assets in early September. `PROVENANCE.md` records, for every figure
+above, where it comes from and whether it was re-derived. `rederive.py` needs neither the
+archive nor any dependency to check that the published figures are consistent with each
+other; given the archive it recomputes them from the audit records.
 
 ## Disclosure
 
 Investigation, implementation, measurement and documentation used Claude Code and OpenAI
 Codex agentically under my direction. Every figure comes from runs on public data or on the
-archive described above, and `PROVENIENZA.md` says for each one whether it was recomputed.
+archive described above, and `PROVENANCE.md` says for each one whether it was recomputed.
 
 ## Related
 
