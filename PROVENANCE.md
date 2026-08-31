@@ -19,14 +19,29 @@ consistent with each other.
 | area-weighted support | 95.07% | 95.0659% | **0** |
 | Spearman ρ | −0.463 | −0.46274 | 5.6e-17 |
 | Spearman p | 6.7e-07 | 6.69385e-07 | rounding |
-| deduplication factor | 0.882 | 82.62 / 93.6451 = 0.8823 | rounding |
+| deduplication factor | 0.882 | 0.9363 measured over 85 of 86 surfaces | **see below** |
 | deduplicated CT-supported | 78.54 | 82.62 × 0.950659 = 78.5434 | 0.003 |
 | A-150 area | 36.1 | 36.1035 | rounding |
 | A-150 in mask | 98.3% | 98.27% | rounding |
 | B-100 area | 14.9 | 14.9430 | rounding |
 | B-100 in mask | 78.5% | 78.53% | rounding |
 
-No difference beyond the rounding stated in each row.
+Every row but one closes within the rounding stated beside it. The exception is the
+deduplication factor, and it is the subject of the next two paragraphs.
+
+The deduplication row is the one that does not close, and it is now measured rather than
+merely unavailable. Re-voxelising the raw `tifxyz` on the published method's own 20-store-voxel
+lattice gives 0.9363 over **85** of the 86 surfaces: 185,053 cells summed, 173,257 in the union.
+The 86th, B-100, has no `tifxyz` anywhere in the archive — 110 such directories are present and
+that one is not — and its absence is confirmed by the gross area, since 93.6451 − 78.7021 =
+14.9430, B-100 exactly.
+
+What that leaves is a prediction rather than a verdict. The published 82.6231 minus the 73.6888
+measured over 85 leaves 8.9343 cm² for B-100 to add as new area; B-100 is 14.9430 cm², so the
+published factor requires 40.2% of it to overlap surfaces already counted. Measurable as soon
+as that file is found. And the discrepancy runs downward, not upward: 0.9363 across all 86
+would give 87.68 cm² against the published 82.62, so the figure in the README is the
+conservative one.
 
 One row is arithmetic rather than measurement, and should be read as such. The area-weighted
 support of 95.0659% is weighted over the gross 93.6451 cm²; the deduplicated CT-supported

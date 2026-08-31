@@ -273,10 +273,13 @@ def recompute(root: str) -> int:
 
     # The deduplication factor is the one figure the archive cannot return: the
     # overlaps it was computed from were not kept. README and PROVENANCE say so.
-    print("  dedup factor             not recomputable: the overlaps were not kept.")
+    print("  dedup factor             published 0.8823; measured 0.9363 over 85 of 86")
+    print("                           surfaces, from the raw tifxyz. B-100 is absent from")
+    print("                           the archive. For the published figure to hold, 40.2%")
+    print("                           of B-100 must overlap surfaces already counted.")
     print("                           82.62 / 93.6451 = "
           f"{CLAIMED['dedup_area_cm2'] / CLAIMED['gross_area_cm2']:.6f} is consistency,")
-    print("                           not an independent re-derivation.")
+    print("                           not an independent re-derivation. See PROVENANCE.md.")
     print()
     print("  If dedup_result.json is also in this archive, it reports 65.8877 cm2 and")
     print("  factor 0.9053 for the same 86 surfaces. That is a superseded run, kept in")

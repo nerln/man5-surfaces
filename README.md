@@ -8,10 +8,11 @@ Two numbers, because they answer different questions: **82.62 cm²** of deduplic
 passed the gate, and **78.54 cm²** of that is supported by the CT.
 
 The second was re-derived independently from the stored artifacts with no difference at all.
-The first is partly re-derived: the gross area it starts from, 93.6451 cm², reconciles
-exactly, but the deduplication factor applied to it does not, because the overlaps it came
-from were not kept. That is set out below and in `PROVENANCE.md` rather than left for a
-reader to discover.
+The first is only partly re-derived. Its gross area, 93.6451 cm², reconciles exactly. The
+deduplication factor applied to it does not: recomputed from the raw surfaces it comes out at
+0.9363 rather than 0.8823, over 85 of the 86 surfaces — one is missing from the archive. The
+discrepancy has a single arithmetic explanation, which is set out below and in
+`PROVENANCE.md` rather than left for a reader to find.
 
 On scale, stated so it cannot be read as more than it is. The gate accepted 86 surfaces
 totalling 93.64 cm², 84 of them tiles of roughly half a cm²; after deduplication that is
@@ -65,17 +66,28 @@ What counted: `A-150` at 36.1 cm² (sheetness 0.59, 4 of 49 anomalous), `B-100` 
 (sheetness 0.62), and 84 production patches. 86 surfaces, dedup factor 0.882, with the
 method declared before the count.
 
-That factor is the one number here that cannot be recomputed from the archive. The pairwise
-overlaps it came from were not kept, and the only dedup artifact in the archive is from a
-superseded run that gives 0.9053. Everything downstream of 82.62 cm² reconciles exactly;
-82.62 itself rests on a gross area of 93.6451 cm², which does reconcile, times a factor that
-does not.
+That factor was the one number here that could not be recomputed, because the pairwise overlaps
+it came from were not kept and the only dedup artifact in the archive is a superseded run
+giving 0.9053. It has since been recomputed from the raw `tifxyz`, and the result does not
+reproduce it. This is what came out.
 
-Pairwise overlap between traced surfaces is what [`ladder`](https://github.com/nerln/vesuvius-ladder)
-measures, and its `scan --dir` reads a local directory of tifxyz rather than the public bucket,
-so it can be pointed at these surfaces. That is the way to replace this factor with a
-reproducible measurement instead of asking a reader to take it. It has not been done here, and
-until it is, this number stays the weakest one in the package.
+Re-voxelising the valid vertices on the published method's own 20-store-voxel lattice gives
+a factor of **0.9363** — over **85** of the 86 surfaces, not all of them. The missing one is
+B-100: its `tifxyz` is not in the archive, which holds 110 such directories and not that one.
+The set is otherwise exactly right, and the gross area proves it, because 93.6451 − 78.7021 =
+14.9430, which is B-100 to the last digit.
+
+That turns the gap into an arithmetic prediction rather than a doubt. The published 82.6231
+minus the 73.6888 measured over 85 leaves **8.9343 cm²** for B-100 to contribute as new area.
+B-100 is 14.9430 cm², so the published factor requires **40.2% of it to overlap surfaces
+already counted**. That is testable the moment the file is found, and it is plausible on its
+face — B-100 and A-150 come from the same growth series, two seconds apart — but it is not
+measured, so it is not a confirmation.
+
+The direction of the discrepancy is worth stating plainly, because it runs against the usual
+suspicion. If 0.9363 held across all 86, the headline would be 87.68 cm², not 82.62: the
+published number would be **6.1% too low**. Whatever this factor turns out to be, the error it
+carries does not inflate the total.
 
 ## A second channel that shares no code with the first
 
@@ -94,7 +106,7 @@ area-weighted support of 95.07%. That is where the two headline numbers come fro
 in that is an assumption rather than a measurement: the 95.07% is weighted over the gross
 93.6451 cm², and applying it to the deduplicated 82.62 assumes that removing overlap removes
 supported and unsupported area in the same proportion. The overlaps were not kept, so that
-cannot be checked.
+cannot be checked directly.
 
 The two channels rank the surfaces the same way without being told to. Void fraction against
 the gate's sheetness gives Spearman ρ = −0.463, p = 6.7 × 10⁻⁷, with accepted surfaces
