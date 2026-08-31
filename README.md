@@ -71,6 +71,12 @@ superseded run that gives 0.9053. Everything downstream of 82.62 cm² reconciles
 82.62 itself rests on a gross area of 93.6451 cm², which does reconcile, times a factor that
 does not.
 
+Pairwise overlap between traced surfaces is what [`ladder`](https://github.com/nerln/vesuvius-ladder)
+measures, and its `scan --dir` reads a local directory of tifxyz rather than the public bucket,
+so it can be pointed at these surfaces. That is the way to replace this factor with a
+reproducible measurement instead of asking a reader to take it. It has not been done here, and
+until it is, this number stays the weakest one in the package.
+
 ## A second channel that shares no code with the first
 
 The gate is geometric. This check is radiometric, computed from the CT, and shares no
